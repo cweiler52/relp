@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ResultsComponent } from './results/results.component';
 import { ApiService } from './api.service';
 
 @Component({
@@ -12,10 +13,12 @@ export class AppComponent implements OnInit {
   location: string;
   states: any = [];
   searchCriteria: any = {};
+  results: any = [];
 
   constructor(private apiService: ApiService) { }
 
   ngOnInit() {
+    this.results = [];
     this.pricePointOptions = [
       { option: '$', value: 1 },
       { option: '$$', value: 2 }, 
@@ -264,9 +267,12 @@ export class AppComponent implements OnInit {
   }
 
   searchSubmit() {
+    this.results = [];
     this.apiService.search(this.searchCriteria).subscribe(
       data => {
         console.log(data)
+        this.results = data;
+        this.results.delivery = data.transactions.length && data.transactions[1] ? 'Yes' : 'No';
       }
     )
   }

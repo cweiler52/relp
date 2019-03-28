@@ -1,0 +1,12 @@
+<div style="margin: 100px auto 0 auto; padding: 10px; width: 60%; border: 1px solid #333; background-color: #EEE">
+  <div>Name: {{ results[0].name }}</div>
+  <div><img src="{{ results[0].image_url }}" width="300"/></div>
+  <div>Rating: {{ results[0].rating }}</div> 
+
+  <div>Address:</div>
+  <div>{{results[0].location.address1}}</div>
+  <div>{{results[0].location.city}}, {{results[0].location.state}} {{results[0].location.zip_code}}</div>
+
+  <div>Phone: {{ results[0].display_phone }}</div> 
+  <div>Delivery: {{ results.delivery }}</div> 
+</div>

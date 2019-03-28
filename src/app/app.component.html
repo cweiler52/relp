@@ -17,8 +17,6 @@
     <button (click)="searchSubmit($event)">Submit</button>
   </form>
 
-  <!-- <div *ngIf="restraunt.length">
-    <app-results [results]="results"></app-results>
-  </div> -->
+  <app-results *ngIf="results.length" [results]="results"></app-results>
 
 </div>
