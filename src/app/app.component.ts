@@ -270,9 +270,8 @@ export class AppComponent implements OnInit {
     this.results = [];
     this.apiService.search(this.searchCriteria).subscribe(
       data => {
-        console.log(data)
+        console.log(data)        
         this.results = data;
-        this.results.delivery = data.transactions.length && data.transactions[1] ? 'Yes' : 'No';
       }
     )
   }
