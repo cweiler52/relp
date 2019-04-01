@@ -2,26 +2,28 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.4.
 
-## Development server
+**************************
+RED BADGE TECHNICAL ASSESSMENT
+**************************
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Using the Yelp API, build an angular application that allows a user to find a random restaurant based on their location and price point. 
+The restaurant that is returned must be opened at the time of the search, if not the user should not see it.
 
-## Code scaffolding
+The restaurant details that is shown in the app should be:
+image
+rating (as stars)
+Restaurant name 
+Address
+phone number 
+If it delivers or not
+If time add in a google map of the location 
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
-## Build
+https://www.yelp.com/developers/documentation/v3/get_started
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
 
-## Running unit tests
+Submissions are due Thursday at 1pm. They should be posted to github. It is expected that you work on this challenge independently.
+Do NOT use CORS-anywhere to solve this challenge. If you have questions concerning the CORS-anywhere, slack me.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Good Luck.  
 
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
