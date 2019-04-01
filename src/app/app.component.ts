@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { TemplateRef, Component, OnInit, Input } from '@angular/core';
+import { NgIfContext } from '@angular/common';
 import { ResultsComponent } from './results/results.component';
 import { ApiService } from './api.service';
 
@@ -10,15 +11,16 @@ import { ApiService } from './api.service';
 export class AppComponent implements OnInit {
   title = 'Relp';
   pricePointOptions: any = [];
-  location: string;
+  location: string = '';
   states: any = [];
   searchCriteria: any = {};
-  results: any = [];
+  results: any = {};
+  showResults = false;
+  @Input() ngIfElse: TemplateRef<NgIfContext>
 
   constructor(private apiService: ApiService) { }
 
   ngOnInit() {
-    this.results = [];
     this.pricePointOptions = [
       { option: '$', value: 1 },
       { option: '$$', value: 2 }, 
@@ -263,16 +265,18 @@ export class AppComponent implements OnInit {
           "abbreviation": "WY"
       }
   ]
-    this.location = '';
   }
 
   searchSubmit() {
-    this.results = [];
+    this.results = {};
+    this.showResults = false;
     this.apiService.search(this.searchCriteria).subscribe(
-      data => {
-        console.log(data)        
-        this.results = data;
-      }
+        data => {
+            console.log(data)
+            this.results = data;
+            this.results.delivery = !data.transactions.length ? 'Insufficient Data' : data.transactions.includes('delivery') ? 'Yes' : 'No';
+            this.showResults = Object.keys(this.results).length ? true : false;
+        }
     )
   }
 }

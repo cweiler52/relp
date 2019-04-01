@@ -17,6 +17,6 @@
     <button (click)="searchSubmit($event)">Submit</button>
   </form>
 
-  <app-results *ngIf="results.length" [results]="results"></app-results>
+  <app-results *ngIf="showResults" [results]="results"></app-results>
 
 </div>
